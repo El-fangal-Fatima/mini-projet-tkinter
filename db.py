@@ -6,7 +6,7 @@ class Database :
 
         sql = """
         
-        CREATE TABLE IF NOT EXISTS employees(
+        CREATE TABLE IF NOT EXISTS Stagiaire(
             N Integer Primary Key ,
             Name  text ,
             Filier text ,
@@ -22,22 +22,22 @@ class Database :
         self.con.commit()
     
     def insert (self, Name ,Filier ,Sexe ,CEF , Email , Id ,Adress) :
-        self .cur.execute("insert into employees values (NULL ,?,?,?,?,?,?,?)",
+        self .cur.execute("insert into Stagiaire values (NULL ,?,?,?,?,?,?,?)",
         (Name ,Filier ,Sexe ,CEF , Email , Id ,Adress))
         
         self.con.commit()
 
 
     def fetch (self):
-        self.cur.execute("SELECT * FROM employees ")
+        self.cur.execute("SELECT * FROM Stagiaire ")
         rows = self.cur.fetchall()
         return rows
     
     def remove (self ,N) :
-        self.cur.execute("delete from employees where N=? ",(N ,))
+        self.cur.execute("delete from Stagiaire where N=? ",(N ,))
         self.con.commit()
 
     def update (self , N , Name ,Filier ,Sexe ,CEF , Email , Id ,Adress ) : 
-        self.cur.execute("update employees set  Name = ? ,Filier =? ,Sexe =? ,CEF =? , Email =? , Id =? ,Adress =? where N = ? " ,
+        self.cur.execute("update Stagiaire set  Name = ? ,Filier =? ,Sexe =? ,CEF =? , Email =? , Id =? ,Adress =? where N = ? " ,
                     ( Name ,Filier ,Sexe ,CEF , Email , Id ,Adress , N ) )
         self.con.commit()

@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
 from db import Database
-db = Database("Employee.db")
+db = Database("Stagiaire.db")
 
 
 
